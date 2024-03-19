@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<script type="text/javascript"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="stylesheet" href="" th:href="@{/CSS/styles.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="js/search.js"></script>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		var contextPath = /*[[${#httpServletRequest.contextPath}]]*/ '/';
+    /*]]>*/    
+	</script>
+	
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			background-color: #cbe3b5;
+		}
+		form {
+			max-width: 700px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #cbe3b5;
+		}
+		input[type="text"] {
+			display: inline-block;
+			width: 40%;
+			padding: 10px;
+			margin: 5px 0;
+			border: 2px solid rgb(0, 0, 0);
+			border-radius: 5px;
+		    background-color: #4d4d4d;
+		    color: white;
+		}
+		input[type="file"] {
+			width: 55%;
+		}
+		button {
+			display: inline-block;
+			padding: 10px 20px;
+			margin: 10px 5px;
+			background-color: #333;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #555;
+		}
+		h5 {
+			margin-top: 1%;
+		}
+	</style>
+</head>
+
+<body th:onload="disEnableBtn([[${enableBtn}]])">
+	<input type="hidden" id="ssoid" name="ssoid" th:value="${ssoid}" />
+	<h5 id=adminMessage th:text="'' + ${ssoid}" style="color: #062d73;"></h5>
+	<a th:href="@{/login}" class="logout-button" onclick="logoutFunction()">Logout
+        <i>&#10142;</i> 
+        </a>
+	<h1>STM:Silicone Test Method</h1>
+	<p th:text="${message}"></p>
+	<p id="message" th:text="${error}"></p>
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<div id="modalMessage"></div>
+		</div>
+	</div>
+
+	<form method="get" class="form-horizontal" th:action="@{/Modify(ssoid = ${ssoid})}">
+		<div class="label-container">
+			<label for="stmNumber">STM Number<br>(Quality inspection
+				method_master <br>quality inspection characteristics)
+			</label> <input type="text" id="stmNumber" style="height: 10%;" disabled="disabled" th:value="${entValue.stmNo}"
+				oninput="updateDisabledField(this),updateFields()">
+		</div>
+
+		<div class="label-container">
+			<label for="Revision number">Revision number</label>
+			<input type="text" id="disabledField" disabled="disabled" th:value="${entValue.stmVersion}" style="width: 11%;left:9px;">
+		</div>
+
+		<div class="label-container">
+			<label for="linkDestination">Link Destination(STM_parent
+				number)</label>
+			<input type="text" id="linkDestination" disabled="disabled" th:value="${entValue.linkDestination}">
+		</div>
+
+		<div class="label-container">
+			<label for="textJapanese">Text (Short) Japanese</label>
+			<input type="text" id="textJapanese" disabled="disabled" th:value="${entValue.textShortJP}">
+		</div>
+
+		<div class="label-container">
+			<label for="textEnglish">Text (Short) English</label>
+			<input type="text" id="textEnglish" disabled="disabled" th:value="${entValue.textShortEN}">
+		</div>
+
+		<div class="label-container">
+			<label for="pdfFileName">Attachment (PDF)</label>
+			<div class="file-input">
+				<input type="text" id="pdfFileName" disabled="disabled" th:value="${entValue.pdfFile}" name="pdfFileName"
+					style="width: 39%;color: white;position:relative;left:9px;">
+				<input type="hidden" id="pdfFileNameHid" th:value="${entValue.pdfFile}" name="pdfFileName">
+				<button type="button" class="download-button" onclick="downloadPDF()" id="pdfFileName"
+					style="margin-left: 10px;width: 45%; height: auto;" th:value="${pdf}">PDF Download</button>
+			</div>
+		</div>
+
+		<div class="label-container">
+			<label for="docFileName">Attachment (Word)</label>
+			<div class="file-input">
+				<input type="text" id="docFileName" disabled="disabled" th:value="${entValue.wordFile}" name="docFileName"
+					style="width: 39%;position:relative;left:9px;" />
+				<input type="hidden" id="docFileNameHid" th:value="${entValue.wordFile}" name="docFileName">
+				<button type="button" class="download-button" onclick="downloadDocument()" id="docFileName"
+					style="margin-left: 10px;width: 45%; height: auto;" th:value="${word}">DOC Download</button>
+			</div>
+		</div>
+
+		<!-- Modal for PDF error -->
+		<div id="pdfError" class="modal">
+			<div class="modal-content">
+				<span class="close-modal" onclick="closeModal('pdfError')">&times;</span>
+				<p>Invalid file format. Please select a PDF file.</p>
+			</div>
+		</div>
+
+		<!-- Modal for Word error -->
+		<div id="wordError" class="modal">
+			<div class="modal-content">
+				<span class="close-modal" onclick="closeModal('wordError')">&times;</span>
+				<p>Invalid file format. Please select a Word file (doc or docx).</p>
+			</div>
+		</div>
+
+		<div class="label-container">
+			<label for="lastUpdated">Last Updated (Drafting Date)</label>
+			<input type="text" id="lastUpdated" disabled="disabled" th:value="${entValue.draftingDate}" pattern="yyy/MM/dd">
+		</div>
+
+		<div class="label-container">
+			<label for="finalDrafter">Final Drafter (Last Name)</label>
+			<input type="text" id="finalDrafter" disabled="disabled" th:value="${entValue.finalDrafterName}">
+		</div>
+
+		<div class="label-container">
+			<label for="oldStmNumber">Old STM Number</label>
+			<input type="text" id="oldStmNumber" disabled="disabled" th:value="${entValue.oldSTMNumber}">
+		</div>
+
+		<div class="label-container">
+			<label for="remarks1">Remarks 1</label>
+			<input id="remarks1" type="text" disabled="disabled" th:value="${entValue.remarks1}">
+		</div>
+
+		<div class="label-container">
+			<label for="note2">Note 2</label>
+			<input type="text" id="note2" disabled="disabled" th:value="${entValue.note2}">
+		</div>
+
+		<div class="label-container">
+			<label for="note3">Note 3</label>
+			<input type="text" id="note3" disabled="disabled" th:value="${entValue.note3}">
+		</div>
+
+		<div style="margin-top: 20px;">
+			<button type="button" name="action" value="register" class="registerclose" id="clkBtn"
+				onclick="openModifyPage()" disabled>Modify</button>
+			<button type="button" name="action" value="revise" class="registerclose" id="Btn" onclick="openRevisePage()"
+				disabled>Revise</button>
+			<button type="button" name="action" value="delete" class="registerclose" id="clkBtns"
+				onclick="openDeletePage()" disabled>Delete</button>
+			<button type="button" name="action" value="return" class="returnClear"
+				th:onclick="|window.location.href='@{/searchPage(ssoid = ${ssoid})}'|">Return</button>
+		</div>
+
+	</form>
+	<script type="text/javascript">
+		var stmNumber = document.getElementById('stmNumber').value;
+		function openRevisePage() {
+			//ADD[S]Samata_2023/12/26
+			window.location.href = contextPath + '/revise/' + stmNumber;
+		}
+		function openModifyPage() {
+			window.location.href = contextPath + '/modify/' + stmNumber;
+		}
+		function openDeletePage() {
+			window.location.href = contextPath + '/delete/' + stmNumber;
+		}
+		//ADD[E]Samata_2023/12/26
+	</script>
+</body>
+
+</html>

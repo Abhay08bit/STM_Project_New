@@ -1,0 +1,314 @@
+/* style.css */
+/*Added for LoginScreen */
+#loginscreenbody {
+	background-color: #cbe3b5;
+
+}
+
+#adminMessage {
+	position: fixed;
+	top: 10px;
+	right: 130px;
+	color: #062d73;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+/*End for LoginScreen */
+
+
+#dashboardBody {
+	background-color: #cbe3b5;
+	font-family: Arial, sans-serif;
+	text-align: center;
+}
+
+.dashboard {
+	width: 200px;
+	margin-left: 250px;
+}
+
+.dashboard-button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	background-color: #000066;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+
+}
+
+.dashboard-button:hover {
+	background-color: #2980b9;
+}
+
+.dash {
+	width: 200px;
+	margin: 0 450px;
+}
+
+.return {
+	width: 100px;
+	margin: 0 700px;
+}
+
+.disabled-link {
+	pointer-events: none;
+	color: #999;
+	text-decoration: none;
+}
+
+.label-container {
+	display: flex;
+	width: 100%;
+}
+
+.label-container label {
+	width: 50%;
+	text-align: left;
+	margin: 10px 20px;
+
+}
+.registerclose {
+	width: 20%;
+	background-color: #000066;
+	color: #fff;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+}
+.returnClear {
+	width: 20%;
+	background-color: orange;
+	color: #fff;
+	text-align: center;
+	border: 2px solid rgb(64, 0, 0);
+	border-radius: 10px;
+}
+input[type="text"] {
+	border: 2px solid rgb(0, 0, 0);
+}
+
+/* 
+/*Searchpage
+ADD[S]Samata 2023/11/14
+*/
+#recordDisplay {
+	color: #062d73;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+.label-container {
+	display: flex;
+	width: 100%;
+}
+.label-container label {
+	width: 50%;
+	text-align: left;
+	margin: 10px 20px;
+}
+.hedding {
+	padding: 20px 0;
+}
+
+table,
+th,
+tr,
+td,
+thead {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+th {
+  height: 40px;
+  background: #eea647;
+  font-size: 17px;
+  font-weight: 900;
+}
+tr{
+	height: 40px;
+	background: honeydew;
+	font-size: 15px;
+}
+.search {
+	width: 30%;
+	color: #fff;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+	background-color: darkblue;
+	height: 40px;
+
+}
+.reset {
+	width: 30%;
+	color: #fff;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+	background-color: #eea647;
+}
+.menu {
+	width: 30%;
+	color: #fff;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+}
+.view {
+	width: 30%;
+	color: #fff;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+	background-color: darkblue;
+	height: 40px;
+
+}
+#table1 {
+	height: 400px;
+	width: 1600px;
+	overflow-y: scroll;
+}
+.table-layout .clickedrow td {
+	background-color: rgb(189, 189, 189);
+}
+.table-layout {
+	border-collapse: collapse;
+	font-family: arial-narrow, helvetica, sans-serif;
+	font-weight: 100;
+	font-size: 13px;
+	margin: 0 auto 0;
+	margin-bottom: 20px;
+	height: 500px;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+.search:hover {
+	background-color: #2980b9;
+}
+
+.reset:hover {
+	background-color: #2980b9;
+}
+
+.menu:hover,
+.menu:focus {
+	background-color: #2980b9;
+}
+
+.view:hover {
+	background-color: #2980b9;
+}
+
+/*ModifySearchdata */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.close:hover {
+	color: black;
+}
+.download-button {
+	background-color: red;
+	border: 1px solid #888;
+}
+/*ADD[E] Samata*/
+
+/*ADD[s] Amulya*/
+.logout-button {
+	display: block;
+	width: 80px;
+	padding: 10px;
+	margin: 5px 0;
+	background-color: #000066;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+}
+
+/* Style for the arrow inside the button */
+.logout-button i {
+	margin-left: 5px;
+}
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+   /*  background-color: transparent; */
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: transparent;
+     border:none;
+}
+
+.upper-part {
+    background-color: #3399ff;
+    padding: 20px;
+    border-bottom: 1px solid #888; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upper-part p {
+    margin: 0;
+    font-weight: bold;
+    color: white;
+}
+
+.error-message {
+    background-color: #e6e6e6;
+    padding: 20px;
+    color: black;
+}
+
+.close-modal {
+    font-size: 30px;
+    color: red;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: darkred; /* Change the color on hover if needed */
+}
+
+.modal-content button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px; /* Adjust the margin as needed */
+}
+
+.modal-content button:hover {
+    background-color: #555;
+}
+/*ADD[E] Amulya*/

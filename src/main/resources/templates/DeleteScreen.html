@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="stylesheet" href="" th:href="@{/CSS/styles.css}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script th:src="@{/js/search.js}"></script>
+<link rel="stylesheet" th:href="@{/CSS/styles.css}">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+	rel="stylesheet">
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	var contextPath = /*[[${#httpServletRequest.contextPath}]]*/'/';
+	/*]]>*/
+</script>
+<!-- <style>
+  body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: #cbe3b5;
+}
+
+h1 {
+	padding: 10px 0;
+}
+
+form {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #cbe3b5;	
+}
+
+input[type="text"] {
+	display: inline-block;
+	width: 30%;
+	padding: 10px;
+	margin: 5px 0;
+	border: 2px solid rgb(0, 0, 0);
+	border-radius: 5px;
+	
+}
+.stmNumber {
+	height: 15px;
+	background-color: #a2a2c3;
+	color: rgb(64, 0, 64);
+}
+
+button {
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 10px 5px;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #555;
+}
+
+.registerclose {
+	width: 20%;
+	background-color: #000066;
+	color: #fff;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+}
+
+.returnClear {
+	width: 20%;
+	background-color: orange;
+	color: #fff;
+	text-align: center;
+	border: 3px solid rgb(64, 0, 0);
+	border-radius: 10px;
+}
+
+.label-container {
+	display: flex;
+	width: 100%;
+}
+
+
+.label-container label {
+	width: 50%;
+	text-align: left;
+	margin: 10px 20px;
+	
+	
+}
+#adminMessage {
+    position: fixed;
+    top: 10px;
+    right: 130px;
+    color: #062d73;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+</style> -->
+</head>
+<body id="dashboardBody">
+	<header class="header">
+		<!-- <h1>STM: Silicone Test Method</h1> -->
+		<img th:src="@{/images/icons/momentive.png}" alt="momentive">
+		<div class="header-right">
+			<a class="menu-a"
+				th:onclick="|window.location.href='@{/dashboard(ssoid=${ssoid})}'|">Menu</a>
+			<h5 id="adminMessage" th:text="${ssoid}"></h5>
+			<a th:href="@{/login}" class="logout-button"
+				onclick="logoutFunction()"> Logout <i
+				class="bi bi-box-arrow-right"></i>
+			</a>
+		</div>
+	</header>
+	<main>
+		<div style="margin-top: 10px;">
+			<input type="hidden" id="ssoid" name="ssoid" th:value="${ssoid}" />
+			<!--<p id="message" th:text="${message}"></p> -->
+			<p id="message" th:text="${error}"></p>
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal()">&times;</span>
+					<div id="modalMessage"></div>
+				</div>
+			</div>
+
+			<form th:action="@{/delete(ssoid = ${ssoid})}" th:object="${stm}"
+				method="post" enctype="multipart/form-data" id="deleteForm">
+				<div class="form-div-search">
+					<div class="containerForm">
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="stmNumber" class="registration-label">STM
+									Number<br>(Quality inspection method_master quality
+									inspection characteristics)
+								</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="stmNumber" class="input-max-disabled"
+									name="stmNo" th:field="${stm.stmNo}" readonly />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="revisionNumber" class="registration-label">Revision
+									Number</label>
+							</div>
+
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input id="revisionNumber" type="text" class="stmNumber-modify"
+									th:field="${stm.stmVersion}" disabled="disabled" />
+							</div>
+						</div>
+
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="linkDestination" class="registration-label">Link
+									Destination(STM_parent number)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="linkDestination"
+									class="input-max-disabled" th:field="${stm.linkDestination}"
+									disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="textJapanese" class="registration-label">Text
+									(Short) Japanese</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="textJapanese" class="input-max-disabled"
+									th:field="${stm.textShortJP}" disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="textEnglish" class="registration-label">Text
+									(Short) English</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="textEnglish" class="input-max-disabled"
+									th:field="${stm.textShortEN}" disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="attachmentPdf" class="registration-label">Attachment
+									(PDF)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" class="input-max-disabled" id="attachedPdf"
+									th:field="${stm.pdfFile}" disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="attachmentWord" class="registration-label">Attachment
+									(Word)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" class="input-max-disabled" id="attachedWord"
+									th:field="${stm.wordFile}" disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="lastUpdated" class="registration-label">Last
+									Updated (Drafting Date)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="lastUpdated" disabled="disabled"
+									class="input-max-disabled"
+									th:value="${#dates.format(stm.draftingDate, 'yyyy/MM/dd')}"
+									th:field="${stm.draftingDate}" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="finalDrafter" class="registration-label">Final
+									Drafter (Last Name)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="finalDrafter" class="input-max-disabled"
+									th:field="${stm.finalDrafterName}" disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="oldStmNumber" class="registration-label">Old
+									STM Number</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="oldStmNumber" class="input-max-disabled"
+									th:field="${stm.oldSTMNumber}" disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="remarks1" class="registration-label">Remarks
+									1</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input id="remarks1" type="text" class="input-max-disabled"
+									th:field="${stm.remarks1}" disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="note2" class="registration-label">Note 2</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="note2" class="input-max-disabled"
+									th:field="${stm.note2}" disabled="disabled" />
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="note3" class="registration-label">Note 3</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="note3" class="input-max-disabled"
+									th:field="${stm.note3}" disabled="disabled" />
+							</div>
+						</div>
+						<div class="button-div">
+							<button type="button" name="action" value="delete"
+								class="registerclose" onclick="openModal('deleteConfirmation')">Delete</button>
+							<button type="button" name="action" value="return"
+								class="returnClear"
+								th:onclick="|window.location.href='@{/returnSearchPage(ssoid = ${ssoid})}'|">Return</button>
+						</div>
+
+						<!-- Modal for Delete confirmation -->
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</main>
+	<div id="deleteConfirmation" class="modalX">
+		<div class="modal-contentX" style="width: 300px;">
+			<div class="upper-part">
+				<p>Confirm Deletion</p>
+				<span class="close-modal" onclick="closeModal('deleteConfirmation')">&times;</span>
+			</div>
+			<div class="error-message">
+				<p>Are you sure you want to delete it?</p>
+				<button onclick="confirmDelete()">Yes(Y)</button>
+				<button type="button" onclick="closeModal('deleteConfirmation')">No(N)</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function openModal(message) {
+			const modal = document.getElementById('modal');
+			const modalMessage = document.getElementById('modalMessage');
+			modalMessage.textContent = message;
+			modal.style.display = 'block';
+		}
+
+		function closeModal() {
+			const modal = document.getElementById('modal');
+			modal.style.display = 'none';
+		}
+
+		function openModal(modalId) {
+			const modal = document.getElementById(modalId);
+			modal.style.display = 'flex';
+		}
+
+		function closeModal(modalId) {
+			const modal = document.getElementById(modalId);
+			modal.style.display = 'none';
+		}
+		function confirmDelete() {
+			console.log("Confirming deletion...");
+			closeModal('deleteConfirmation');
+			document.getElementById('deleteForm').submit();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Registration Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="" th:href="@{/CSS/styles.css}">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+	rel="stylesheet">
+</head>
+
+<body id="dashboardBody">
+
+	<header class="header">
+		<!-- <h1>STM: Silicone Test Method</h1> -->
+		<img th:src="@{/images/icons/momentive.png}" alt="momentive">
+		<div class="header-right">
+			<a class="menu-a"
+				th:onclick="|window.location.href='@{/dashboard(ssoid=${ssoid})}'|">Menu</a>
+			<h5 id="adminMessage" th:text="${ssoid}"></h5>
+			<a th:href="@{/login}" class="logout-button"
+				onclick="logoutFunction()"> Logout <i
+				class="bi bi-box-arrow-right"></i>
+			</a>
+		</div>
+	</header>
+	<main>
+
+		<div style="margin-top: 10px;">
+			<input type="hidden" id="ssoid" name="ssoid" th:value="${ssoid}" />
+			<!-- <h5 id=adminMessage th:text="'' + ${ssoid}" style="color: #062d73;"></h5> -->
+			<!-- Success Modal -->
+			<div id="successModal" class="modalX" th:if="${message}">
+				<div class="modal-contentX">
+					<!-- Upper part with green color -->
+					<div class="upper-part success-upper">
+						<p>Success</p>
+						<span class="close-modal" onclick="closeModal('successModal')">&times;</span>
+					</div>
+
+					<!-- Lower part with dark color -->
+					<div class="error-message">
+						<div class="success-message">
+							<p th:text="${message}" style="color: black;"></p>
+						</div>
+						<button type="button" class="ok-button"
+							onclick="closeModal('successModal')">OK</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Error Modal -->
+			<div id="errorModal" class="modalX" th:if="${error}">
+				<div class="modal-contentX">
+					<!-- Upper part with red color -->
+					<div class="upper-part error-upper">
+						<p>Error</p>
+						<span class="close-modal" onclick="closeModal('errorModal')">&times;</span>
+					</div>
+
+					<!-- Lower part with dark color -->
+					<div class="error-message">
+						<div class="error-message">
+							<p th:text="${error}" style="color: red;"></p>
+						</div>
+						<button type="button" class="ok-button"
+							onclick="closeModal('errorModal')">OK</button>
+					</div>
+				</div>
+			</div>
+
+
+			<div>
+				<div id="modal" class="modal">
+					<div class="modal-content">
+						<span class="close" onclick="closeModal()">&times;</span>
+						<div id="modalMessage"></div>
+					</div>
+				</div>
+				<div style="height: 15px;">
+					<span id="stmNumberValidationMessage" style="color: red;"></span>
+				</div>
+
+				<form th:action="@{/register(ssoid = ${ssoid})}" th:object="${STM}"
+					method="post" enctype="multipart/form-data">
+					<div class="form-div">
+						<div class="containerForm">
+							<div class="label-container row mb-1" style="width: 100%">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="stmNumber" class="registration-label ">STM
+										Number<br>(Quality inspection method_master quality
+										inspection characteristics)
+									</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="stmNumber" th:field="*{stmNo}"
+										class="input-max"
+										oninput="updateDisabledField(this),updateFields()" required
+										onblur="validateSTMNumber()" pattern="[a-zA-Z0-9]*"
+										title="Alphabet and number characters only allowed">
+
+								</div>
+							</div>
+							<!-- <div class="label-container">
+								<div>
+									<input type="text" class="stmNumber" id="disabledField"
+										th:field="*{stmVersion}" disabled="disabled"> <label
+										for="disabledField" class="registration-label">
+										Automatic (00)</label>
+								</div>
+							</div> -->
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px"></div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" class="stmNumber-modify " id="disabledField"
+										th:field="*{stmVersion}" disabled="disabled"> <label
+										for="disabledField" class="registration-label"
+										style="white-space: nowrap; margin-left: 10px;">Automatic
+										(00) </label>
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="linkDestination" class="registration-label">Link
+										Destination(STM_parent number)</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" class="input-max-disabled"
+										id="linkDestination" th:field="*{linkDestination}"
+										disabled="disabled">
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="textJapanese" class="registration-label ">Text
+										(Short) Japanese</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="textJapanese" th:field="*{textShortJP}"
+										maxlength="200" class="input-max"
+										pattern="^[\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s。]+$"
+										title="Only Japanese characters are allowed">
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="textEnglish" class="registration-label">Text
+										(Short) English</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="textEnglish" th:field="*{textShortEN}"
+										maxlength="200" pattern="^[a-zA-Z\s]+$" class="input-max"
+										title="Alphabet and Space only allowed">
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="attachmentPdf" class="registration-label">Attachment
+										(PDF)</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<div class="row mb-1">
+										<div class="col-sm-7" style="min-width: 230px">
+											<input type="text" class="input-max-disabled"
+												id="attachedPdf" disabled="disabled"
+												pattern="^[a-zA-Z0-9().\-\s]+$"
+												title="Alphabet,number,dot,hypen and Space only allowed">
+										</div>
+										<div class="col-sm-3" style="margin-left: 15px">
+											<button type="button" class="choose-file"
+												onclick="document.getElementById('attachmentPdf').click()">Choose
+												PDF File</button>
+											<input type="file" id="attachmentPdf" name="pdfFile"
+												maxlength="25"
+												onchange="updatePdfFileName('attachedPdf', 'attachmentPdf', 'pdfError')"
+												style="display: none;">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="attachmentWord" class="registration-label">Attachment
+										(Word)</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<div class="row mb-1">
+										<div class="col-sm-7" style="min-width: 230px">
+											<input type="text" class="input-max-disabled"
+												id="attachedWord" disabled="disabled"
+												pattern="^[a-zA-Z0-9().\-\s]+$"
+												title="Alphabet,number,dot,hypen and Space only allowed">
+										</div>
+
+										<div class="col-sm-3" style="margin-left: 15px">
+											<button type="button" class="choose-file"
+												onclick="document.getElementById('attachmentWord').click()">Choose
+												Word File</button>
+											<input type="file" id="attachmentWord" name="wordFile"
+												maxlength="25"
+												onchange="updateWordFileName('attachedWord', 'attachmentWord', 'wordError')"
+												style="display: none;">
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Modal for PDF error-->
+							<div id="pdfError" class="modalX">
+								<div class="modal-contentX">
+									<div class="upper-part">
+										<p>Error</p>
+										<span class="close-modal" onclick="closeModal('pdfError')">&times;</span>
+									</div>
+									<div class="error-message">
+										<p>Invalid file format. Please select a PDF file.</p>
+										<button type="button" class="ok-button"
+											onclick="closeModal('pdfError')">OK</button>
+									</div>
+								</div>
+							</div>
+
+							<!--Modal for Word error-->
+							<div id="wordError" class="modalX">
+								<div class="modal-contentX">
+									<div class="upper-part">
+										<p>Error</p>
+										<span class="close-modal" onclick="closeModal('wordError')">&times;</span>
+									</div>
+									<div class="error-message">
+										<p>Invalid file format. Please select a Word file (doc or
+											docx).</p>
+										<button type="button" class="ok-button"
+											onclick="closeModal('wordError')">OK</button>
+									</div>
+								</div>
+							</div>
+							<!--Modal for invalid month-->
+							<div id="modalErrorMonth" class="modal">
+								<div class="modal-content">
+									<div class="upper-part">
+										<p>error</p>
+										<span class="close-modal"
+											onclick="closeModal('modalErrorMonth')">&times;</span>
+									</div>
+									<div class="error-message">
+										<p>Invalid month. Please enter a valid month (1-12).</p>
+										<button type="button" class="ok-button"
+											onclick="closeModal('modalErrorMonth')">OK</button>
+									</div>
+								</div>
+							</div>
+							<!--Modal for invalid day-->
+							<div id="modalErrorDay" class="modal">
+								<div class="modal-content">
+									<div class="upper-part">
+										<p>error</p>
+										<span class="close-modal"
+											onclick="closeModal('modalErrorDay')">&times;</span>
+									</div>
+									<div class="error-message">
+										<p>Invalid day. Please enter a valid day for the selected
+											month.</p>
+										<button type="button" class="ok-button"
+											onclick="closeModal('modalErrorDay')">OK</button>
+
+									</div>
+								</div>
+							</div>
+
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="lastUpdated" class="registration-label">Last
+										Updated (Drafting Date)</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="lastUpdated" th:field="*{draftingDate}"
+										placeholder="yyyy/mm/dd" maxlength="10" required="required"
+										class="input-max"
+										pattern="(?:19|20)(?:[0-9]{2}\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[12][0-9]|3[01]))"
+										title="Please Enter Date in yyyy/mm/dd."
+										oninput="formatInputDate(this)">
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="finalDrafter" class="registration-label">Final
+										Drafter (Last Name)</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="finalDrafter"
+										th:field="*{finalDrafterName}" class="input-max"
+										th:value="${finalDrafterName}" maxlength="50"
+										required="required"
+										pattern="^[a-zA-Z\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s]+$"
+										title="Alphabet, Japanese characters, and Space only allowed" />
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="oldStmNumber" class="registration-label">Old
+										STM Number</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="oldStmNumber" class="input-max-disabled"
+										th:field="*{oldSTMNumber}" disabled="disabled" maxlength="15">
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="remarks1" class="registration-label">Remarks
+										1</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input id="remarks1" class="input-max" maxlength="200"
+										type="text" th:field="*{remarks1}">
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="note2" class="registration-label">Note 2</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="note2" class="input-max" maxlength="200"
+										th:field="*{note2}">
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="note3" class="registration-label">Note 3</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="note3" class="input-max" maxlength="200"
+										th:field="*{note3}">
+								</div>
+							</div>
+
+							<div class="button-div">
+								<button type="submit" name="action" value="register"
+									class="registerclose">Register</button>
+								<button type="reset" name="action" value="clear"
+									class="returnClear">Clear</button>
+								<!-- <button
+									style="width: 120px; border: 3px solid rgb(64, 0, 0); border-radius: 10px; color: white; background-color: limegreen;"
+									type="button"
+									th:onclick="|window.location.href='@{/dashboard(ssoid=${ssoid})}'|">Menu</button> -->
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<script th:src="@{/js/register.js}"></script>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		// Check if the success message exists and open the success modal
+		var successMessage = /*[[${message}]]*/'';
+		if (successMessage) {
+			openModal('successModal');
+		}
+
+		// Check if the error message exists and open the error modal
+		var errorMessage = /*[[${error}]]*/'';
+		if (errorMessage) {
+			openModal('errorModal');
+		}
+
+		function validateSTMNumber() {
+			var stmNumber = document.getElementById('stmNumber').value;
+			var ssoid = document.getElementById('ssoid').value;
+
+			var validationMessageElement = document
+					.getElementById('stmNumberValidationMessage');
+
+			// Make an AJAX request to check if the STM number exists
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET',
+					'/stmproject/checkSTMNumber?stmNumber=' + stmNumber, true);
+			// xhr.open('GET', '/checkSTMNumber?stmNumber=' + stmNumber, true);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						var response = JSON.parse(xhr.responseText);
+						if (response.exists) {
+							// STM number exists, show error message
+							validationMessageElement.innerText = 'STM Number has already been issued!';
+						} else {
+							// STM number does not exist, clear error message
+							validationMessageElement.innerText = '';
+						}
+					} else {
+						// Error occurred during AJAX request
+						console.error('Error checking STM number:', xhr.status);
+					}
+				}
+			};
+			xhr.send();
+		}
+		// Trigger validation when the STM number field loses focus
+		document.getElementById('stmNumber').addEventListener('blur',
+				validateSTMNumber);
+
+		// Trigger validation when the user clicks anywhere on the screen
+		document.addEventListener('click', function() {
+			validateSTMNumber();
+		});
+	</script>
+</body>
+
+</html>

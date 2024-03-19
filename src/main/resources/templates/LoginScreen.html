@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/login.css}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/animate/animate.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/animsition/css/animsition.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/select2/select2.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/util.css}">
+
+
+</head>
+<body>
+	<!-- 	<h1>STM: Silicone Test Method</h1>
+ -->
+	<!-- <form th:action="@{/login}" th:object="${loginScreen}" method="post">
+        <p th:if="${invalidCredentials}" class="error" id="errorMessage">ID or password mismatch</p>
+        <p th:if="${accountDeleted}" class="error" id="errorMessage">User ID already deleted from system</p>
+        
+        <div class="form-group">
+            <label for="ssoid">SSO ID</label>
+            <input type="text" id="ssoid" name="ssoid" autofocus="autofocus" pattern="^[a-zA-Z0-9\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s@]+$"
+                title="Alphabet, Japanese characters,number and Space only allowed" maxlength="11" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"  pattern="^[a-zA-Z0-9\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s!@#$%^&*()-_+=]+$"
+        title="Alphabet, Japanese characters, numbers, space, and selected special characters allowed" maxlength="11" required>
+        </div>
+        <div class="button-container">
+            <input type="submit" value="LogIn">
+        </div>
+    </form> -->
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form th:action="@{/login}" th:object="${loginScreen}" method="post"
+					class="login100-form validate-form p-l-55 p-r-55 p-t-130">
+					<span class="login100-form-title">Silicon Test Method</span>
+
+					<!-- 					<span style = "" >Login:</span>
+ -->
+					<div class="wrap-input100 validate-input m-b-16"
+						data-validate="Please enter username">
+						<input class="input100" type="text" name="ssoid"
+							placeholder="SSOID" id="ssoid"
+							pattern="^[a-zA-Z0-9\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s@]+$"
+							title="Alphabet, Japanese characters,number and Space only allowed"
+							maxlength="11" required>
+					</div>
+
+					<div class="wrap-input100 validate-input"
+						data-validate="Please enter password">
+						<input class="input100" type="password" name="password"
+							placeholder="Password" id="password"
+							pattern="^[a-zA-Z0-9\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s!@#$%^&*()-_+=]+$"
+							title="Alphabet, Japanese characters, numbers, space, and selected special characters allowed"
+							maxlength="11" required>
+					</div>
+
+					<div style="height: 10px; margin-left: 20px">
+						<p th:if="${invalidCredentials}" class="error" id="errorMessage"
+							style="color: red;">ID or password mismatch</p>
+						<p th:if="${accountDeleted}" class="error" id="errorMessage"
+							style="color: red;">User ID already deleted from system</p>
+					</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">Sign in</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--===============================================================================================-->
+	<script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+	<!--===============================================================================================-->
+	<script th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
+	<!--===============================================================================================-->
+	<script th:src="@{/vendor/bootstrap/js/popper.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+	<!--===============================================================================================-->
+	<script th:src="@{/vendor/select2/select2.min.js}"></script>
+	<!--===============================================================================================-->
+	<script th:src="@{/vendor/daterangepicker/moment.min.js}"></script>
+	<script th:src="@{/vendor/daterangepicker/daterangepicker.js}"></script>
+	<!--===============================================================================================-->
+	<script th:src="@{/vendor/countdowntime/countdowntime.js}"></script>
+	<!--===============================================================================================-->
+	<script th:src="@{/js/main.js}"></script>
+	<script th:inline="javascript">
+		setTimeout(function() {
+			var errorMessage = document.getElementById('errorMessage');
+			if (errorMessage) {
+				errorMessage.style.display = 'none';
+			}
+		}, 20000);
+	</script>
+</body>
+</html>

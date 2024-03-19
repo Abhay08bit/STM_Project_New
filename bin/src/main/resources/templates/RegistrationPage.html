@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Registration Form</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="" th:href="@{/CSS/styles.css}">
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+h1 {
+	padding: 10px 0;
+}
+
+form {
+	max-width: 650px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #cbe3b5;
+}
+
+input[type="text"], input[type="file"] {
+	display: inline-block;
+	width: 30%;
+	padding: 10px;
+	margin: 5px 0;
+	/* 	border: 1px solid #ccc; */
+	border-radius: 5px;
+}
+
+input[type="file"] {
+	width: 55%;
+}
+
+button {
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 10px 5px;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #555;
+}
+
+.stmNumber {
+	height: 15px;
+	background-color: #4d4d4d;
+	color: #fff;
+}
+
+.label-container #attachedPdf {
+	width: 100px;
+}
+
+.label-container #attachedWord {
+	width: 92px;
+}
+</style>
+</head>
+
+<body id="dashboardBody">
+	<input type="hidden" id="ssoid" name="ssoid" th:value="${ssoid}" />
+	<h5 id=adminMessage th:text="'' + ${ssoid}" style="color: #062d73;"></h5>
+	<a th:href="@{/login}" class="logout-button" onclick="logoutFunction()">
+		Logout <i>&#10142;</i>
+	</a>
+
+	<h1>STM:Silicone Test Method</h1>	
+	<!-- Success Modal -->
+<div id="successModal" class="modal" th:if="${message}">
+    <div class="modal-content">
+        <!-- Upper part with green color -->
+        <div class="upper-part success-upper">
+            <p>Success</p>
+            <span class="close-modal" onclick="closeModal('successModal')">&times;</span>
+        </div>
+        
+        <!-- Lower part with dark color -->
+        <div class="error-message">
+            <div class="success-message">
+                <p th:text="${message}" style="color: black;"></p>
+            </div>
+            <button type="button" class="ok-button" onclick="closeModal('successModal')">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Error Modal -->
+<div id="errorModal" class="modal" th:if="${error}">
+    <div class="modal-content">
+        <!-- Upper part with red color -->
+        <div class="upper-part error-upper">
+            <p>Error</p>
+            <span class="close-modal" onclick="closeModal('errorModal')">&times;</span>
+        </div>
+        
+        <!-- Lower part with dark color -->
+        <div class="error-message">
+            <div class="error-message">
+                <p th:text="${error}" style="color: red;"></p>
+            </div>
+            <button type="button" class="ok-button" onclick="closeModal('errorModal')">OK</button>
+        </div>
+    </div>
+</div>
+	
+	
+	
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<div id="modalMessage"></div>
+		</div>
+	</div>
+
+	<form th:action="@{/register(ssoid = ${ssoid})}" th:object="${STM}"
+		method="post" enctype="multipart/form-data">
+		<div class="label-container">
+			<label for="stmNumber">STM Number<br>(Quality inspection
+				method_master <br>quality inspection characteristics)
+			</label> <input type="text" id="stmNumber" th:field="*{stmNo}"
+				style="height: 15px;" maxlength="15"
+				oninput="updateDisabledField(this),updateFields()" required
+				pattern="[a-zA-Z0-9\u3040-\u30FF]*"
+				title="Alphabet, Japanese characters, and number characters only allowed">
+		</div>
+		<input type="text" class="stmNumber" id="disabledField"
+			th:field="*{stmVersion}" disabled="disabled"
+			style="height: 15px; width: 40px; margin-left: 250px;">
+		Automatic (00)
+
+		<div class="label-container">
+			<label for="linkDestination">Link Destination(STM_parent
+				number)</label> <input type="text" class="stmNumber" id="linkDestination"
+				th:field="*{linkDestination}" disabled="disabled">
+		</div>
+
+		<div class="label-container">
+			<label for="textJapanese">Text (Short) Japanese</label> <input
+				type="text" id="textJapanese" th:field="*{textShortJP}"
+				maxlength="200"
+				pattern="^[\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s。]+$"
+				title="Only Japanese characters are allowed">
+		</div>
+
+		<div class="label-container">
+			<label for="textEnglish">Text (Short) English</label> <input
+				type="text" id="textEnglish" th:field="*{textShortEN}"
+				maxlength="200" pattern="^[a-zA-Z\s]+$"
+				title="Alphabet and Space only allowed">
+		</div>
+
+		<div class="label-container">
+			<label for="attachmentPdf">Attachment (PDF)</label>
+			<div class="file-input">
+				<input type="text" class="stmNumber" id="attachedPdf"
+					disabled="disabled" pattern="^[a-zA-Z0-9().\-\s]+$"
+					title="Alphabet,number,dot,hypen and Space only allowed">
+				<button type="button"
+					style="background-color: red; border-radius: 5px;"
+					onclick="document.getElementById('attachmentPdf').click()">Choose
+					PDF File</button>
+				<input type="file" id="attachmentPdf" name="pdfFile" maxlength="25"
+					onchange="updatePdfFileName('attachedPdf', 'attachmentPdf', 'pdfError')"
+					style="display: none;">
+			</div>
+		</div>
+
+		<div class="label-container">
+			<label for="attachmentWord">Attachment (Word)</label>
+			<div class="file-input">
+				<input type="text" class="stmNumber" id="attachedWord"
+					disabled="disabled" pattern="^[a-zA-Z0-9().\-\s]+$"
+					title="Alphabet,number,dot,hypen and Space only allowed">
+				<button type="button"
+					style="background-color: red; border-radius: 5px; width: 150px;"
+					onclick="document.getElementById('attachmentWord').click()">Choose
+					Word File</button>
+				<input type="file" id="attachmentWord" name="wordFile"
+					maxlength="25"
+					onchange="updateWordFileName('attachedWord', 'attachmentWord', 'wordError')"
+					style="display: none;">
+			</div>
+		</div>
+		<!-- Modal for PDF error -->
+		<div id="pdfError" class="modal">
+			<div class="modal-content">
+				<div class="upper-part">
+					<p>error</p>
+					<span class="close-modal" onclick="closeModal('pdfError')">&times;</span>
+				</div>
+				<div class="error-message">
+					<p>Invalid file format. Please select a PDF file.</p>
+					<button type="button" class="ok-button" onclick="closeModal('pdfError')">OK</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal for Word error -->
+		<div id="wordError" class="modal">
+			<div class="modal-content">
+				<div class="upper-part">
+					<p>error</p>
+					<span class="close-modal" onclick="closeModal('wordError')">&times;</span>
+				</div>
+				<div class="error-message">
+					<p>Invalid file format. Please select a Word file (doc or
+						docx).</p>
+					<button type="button" class="ok-button" onclick="closeModal('wordError')">OK</button>	
+				</div>
+			</div>
+		</div>
+		<!-- Modal for invalid month -->
+		<div id="modalErrorMonth" class="modal">
+			<div class="modal-content">
+				<div class="upper-part">
+					<p>error</p>
+					<span class="close-modal" onclick="closeModal('modalErrorMonth')">&times;</span>
+				</div>
+				<div class="error-message">
+					<p>Invalid month. Please enter a valid month (1-12).</p>
+					<button type="button" class="ok-button" onclick="closeModal('modalErrorMonth')">OK</button>
+				</div>
+			</div>
+		</div>
+		<!-- Modal for invalid day -->
+		<div id="modalErrorDay" class="modal">
+			<div class="modal-content">
+				<div class="upper-part">
+					<p>error</p>
+					<span class="close-modal" onclick="closeModal('modalErrorDay')">&times;</span>
+				</div>
+				<div class="error-message">
+					<p>Invalid day. Please enter a valid day for the selected
+						month.</p>
+					<button type="button" class="ok-button" onclick="closeModal('modalErrorDay')">OK</button>	
+						
+				</div>
+			</div>
+		</div>
+
+
+		<div class="label-container">
+			<label for="lastUpdated">Last Updated (Drafting Date)</label> <input
+				type="text" id="lastUpdated" th:field="*{draftingDate}"
+				placeholder="yyyy/mm/dd" maxlength="10" required="required"
+				pattern="(?:19|20)(?:[0-9]{2}\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[12][0-9]|3[01]))"
+				title="Please Enter Date in yyyy/mm/dd."
+				oninput="formatInputDate(this)">
+		</div>
+
+		<div class="label-container">
+			<label for="finalDrafter">Final Drafter (Last Name)</label> <input
+				type="text" id="finalDrafter" th:field="*{finalDrafterName}"
+				th:value="${finalDrafterName}" maxlength="50" required="required"
+				pattern="^[a-zA-Z\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s]+$"
+				title="Alphabet, Japanese characters, and Space only allowed" />
+		</div>
+
+		<div class="label-container">
+			<label for="oldStmNumber">Old STM Number</label> <input type="text"
+				id="oldStmNumber" class="stmNumber" th:field="*{oldSTMNumber}"
+				disabled="disabled" maxlength="15">
+		</div>
+
+		<div class="label-container">
+			<label for="remarks1">Remarks 1</label> <input id="remarks1"
+				maxlength="200" type="text" th:field="*{remarks1}">
+		</div>
+
+		<div class="label-container">
+			<label for="note2">Note 2</label> <input type="text" id="note2"
+				maxlength="200" th:field="*{note2}">
+		</div>
+
+		<div class="label-container">
+			<label for="note3">Note 3</label> <input type="text" id="note3"
+				maxlength="200" th:field="*{note3}">
+		</div>
+
+		<div style="margin-top: 20px;">
+			<button type="submit" name="action" value="register"
+				class="registerclose">Register</button>
+			<button type="button" name="action" value="return"
+				class="returnClear"
+				th:onclick="|window.location.href='@{/returnAdminDashboard(ssoid = ${ssoid})}'|">Return</button>
+			<button type="reset" name="action" value="clear" class="returnClear">Clear</button>
+		</div>
+	</form>
+	<script th:src="@{/js/register.js}"></script>
+    <script th:inline="javascript">
+    /*<![CDATA[*/
+    // Check if the success message exists and open the success modal
+    var successMessage = /*[[${message}]]*/ '';
+    if (successMessage) {
+        openModal('successModal');
+    }
+
+    // Check if the error message exists and open the error modal
+    var errorMessage = /*[[${error}]]*/ '';
+    if (errorMessage) {
+        openModal('errorModal');
+    }
+  
+</script>   
+
+
+</body>
+
+</html>

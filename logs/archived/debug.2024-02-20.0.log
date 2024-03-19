@@ -1,0 +1,188 @@
+2024-02-20 07:50:53 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 16396 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 07:50:53 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 07:50:53 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 07:51:23 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 30.868 seconds (JVM running for 33.416)
+2024-02-20 07:52:44 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 14772 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 07:52:44 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 07:52:44 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 07:52:54 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 10.106 seconds (JVM running for 11.679)
+2024-02-20 07:54:24 [http-nio-8080-exec-5] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 07:54:24 [http-nio-8080-exec-5] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 07:54:24 [http-nio-8080-exec-5] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 09:20:22 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 9044 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 09:20:22 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 09:20:22 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 09:20:27 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 5.195 seconds (JVM running for 6.047)
+2024-02-20 09:42:55 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 9044 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 09:42:55 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 09:42:55 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 09:42:56 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 1.238 seconds (JVM running for 1355.192)
+2024-02-20 09:43:23 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 284 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 09:43:23 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 09:43:23 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 09:43:29 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.543 seconds (JVM running for 7.598)
+2024-02-20 09:43:47 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 18220 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 09:43:47 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 09:43:47 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 09:43:51 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 4.551 seconds (JVM running for 5.323)
+2024-02-20 09:44:59 [http-nio-8080-exec-8] INFO  c.s.c.STM_RegistrationController - Registration failed. STM number A05000000000002 already exists.
+2024-02-20 09:46:20 [http-nio-8080-exec-7] INFO  c.s.c.STM_RegistrationController - Registration failed. STM number A05000000000002 already exists.
+2024-02-20 09:46:44 [http-nio-8080-exec-6] INFO  c.s.c.STM_RegistrationController - Registration failed. STM number A05000000000002 already exists.
+2024-02-20 09:55:34 [http-nio-8080-exec-10] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 09:55:35 [http-nio-8080-exec-10] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 09:55:35 [http-nio-8080-exec-10] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 09:56:33 [http-nio-8080-exec-6] INFO  c.s.c.STM_RegistrationController - Registration failed. STM number A05000000000002 already exists.
+2024-02-20 10:13:38 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 18220 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:13:38 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:13:38 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:13:55 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 1472 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:13:55 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:13:55 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 10:14:02 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 7.404 seconds (JVM running for 8.696)
+2024-02-20 10:14:15 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17112 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:14:15 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:14:15 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:14:19 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 4.357 seconds (JVM running for 5.118)
+2024-02-20 10:14:37 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 10:14:38 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 10:14:38 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 10:15:45 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17112 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:15:45 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:15:45 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:15:46 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 1.798 seconds (JVM running for 92.807)
+2024-02-20 10:15:47 [http-nio-8080-exec-1] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 10:15:47 [http-nio-8080-exec-1] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 10:15:47 [http-nio-8080-exec-1] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 10:26:49 [http-nio-8080-exec-5] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 10:26:49 [http-nio-8080-exec-5] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 10:26:49 [http-nio-8080-exec-5] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 10:30:17 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17112 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:30:17 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:30:17 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:30:18 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 1.185 seconds (JVM running for 964.417)
+2024-02-20 10:30:39 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 19652 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:30:39 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:30:39 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 10:30:46 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.73 seconds (JVM running for 7.854)
+2024-02-20 10:31:23 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17220 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:31:23 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:31:23 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:31:27 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 4.135 seconds (JVM running for 4.905)
+2024-02-20 10:31:37 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17220 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:31:37 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:31:37 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:31:38 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 1.086 seconds (JVM running for 15.555)
+2024-02-20 10:31:47 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 10:31:47 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 10:31:47 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 10:33:17 [http-nio-8080-exec-9] INFO  c.s.c.STM_RegistrationController - Registration failed. STM number A05000000000002 already exists.
+2024-02-20 10:33:48 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17220 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:33:48 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:33:48 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:33:49 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 1.066 seconds (JVM running for 146.418)
+2024-02-20 10:40:18 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17220 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:40:18 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:40:18 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:40:34 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 19624 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:40:34 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:40:34 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 10:40:40 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.916 seconds (JVM running for 8.054)
+2024-02-20 10:41:03 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 1720 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:41:03 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:41:03 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:41:07 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 4.228 seconds (JVM running for 5.02)
+2024-02-20 10:41:17 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 10:41:17 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 10:41:17 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 10:45:47 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 1720 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:45:47 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:45:47 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:45:48 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 1.198 seconds (JVM running for 285.77)
+2024-02-20 10:46:13 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 3200 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:46:13 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:46:13 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 10:46:19 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.368 seconds (JVM running for 7.562)
+2024-02-20 10:47:55 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17328 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:47:55 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:47:55 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 10:48:02 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.54 seconds (JVM running for 7.604)
+2024-02-20 10:48:13 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17220 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 10:48:13 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 10:48:13 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 10:48:17 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 4.277 seconds (JVM running for 5.063)
+2024-02-20 10:48:29 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 10:48:29 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 10:48:29 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 10:52:27 [http-nio-8080-exec-5] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 10:56:33 [http-nio-8080-exec-2] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 10:56:33 [http-nio-8080-exec-2] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 10:56:33 [http-nio-8080-exec-2] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 11:21:44 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 15260 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 11:21:44 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 11:21:44 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 11:21:56 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 12.055 seconds (JVM running for 14.149)
+2024-02-20 11:30:18 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 4804 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 11:30:18 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 11:30:18 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 11:30:29 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 11.912 seconds (JVM running for 14.328)
+2024-02-20 11:30:47 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 13492 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 11:30:47 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 11:30:47 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 11:30:55 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 8.682 seconds (JVM running for 10.278)
+2024-02-20 11:31:04 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 11:31:04 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 11:31:04 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 11:32:43 [http-nio-8080-exec-9] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 11:33:00 [http-nio-8080-exec-3] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 11:33:18 [http-nio-8080-exec-5] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 11:33:39 [http-nio-8080-exec-8] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 11:33:46 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 11:35:02 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 1560 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 11:35:02 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 11:35:02 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 11:35:13 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 11.483 seconds (JVM running for 13.625)
+2024-02-20 12:00:27 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 6512 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 12:00:27 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 12:00:27 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 12:00:38 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 11.309 seconds (JVM running for 13.381)
+2024-02-20 12:04:25 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 17084 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 12:04:25 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 12:04:25 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 12:04:35 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 10.613 seconds (JVM running for 12.292)
+2024-02-20 12:04:47 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 12:04:59 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 12:05:00 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 12:05:00 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 12:05:03 [http-nio-8080-exec-2] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 13:17:34 [http-nio-8080-exec-7] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 13:17:35 [http-nio-8080-exec-7] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 13:17:35 [http-nio-8080-exec-7] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 13:19:18 [http-nio-8080-exec-8] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 13:19:18 [http-nio-8080-exec-8] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 13:19:18 [http-nio-8080-exec-8] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 13:19:22 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 14:28:18 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 21344 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 14:28:18 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 14:28:18 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 14:28:23 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 5.861 seconds (JVM running for 6.9)
+2024-02-20 14:28:44 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 16156 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 14:28:44 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 14:28:44 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-20 14:28:48 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 3.837 seconds (JVM running for 4.596)
+2024-02-20 14:29:42 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 14:29:42 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 14:29:42 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 14:31:21 [http-nio-8080-exec-4] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 14:31:21 [http-nio-8080-exec-4] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 14:31:21 [http-nio-8080-exec-4] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 14:31:24 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 14:31:35 [http-nio-8080-exec-2] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 14:39:14 [http-nio-8080-exec-8] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 14:40:33 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-20 14:40:33 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-20 14:40:33 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-20 14:40:37 [http-nio-8080-exec-6] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-20 14:41:30 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 5228 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-20 14:41:30 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-20 14:41:30 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-20 14:41:37 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.98 seconds (JVM running for 8.256)

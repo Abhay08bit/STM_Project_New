@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<script type="text/javascript"></script>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="" th:href="@{/CSS/styles.css}">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+	rel="stylesheet">
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script th:src="@{/js/search.js}"></script>
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	var contextPath = /*[[${#httpServletRequest.contextPath}]]*/'/';
+	/*]]>*/
+</script>
+<!-- <style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: #cbe3b5;
+}
+
+form {
+	max-width: 650px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #cbe3b5;
+}
+
+input[type="text"] {
+	display: inline-block;
+	width: 50%;
+	padding: 10px;
+	height: 30%;
+	margin: 5px 0;
+	border: 2px solid rgb(0, 0, 0);
+	border-radius: 5px;
+}
+
+h5 {
+	margin-top: 1%;
+}
+
+tr.tableHover:hover {
+	background-color: lightgray;
+}
+</style>
+ -->
+</head>
+<!--Added [s] Amulya for date validation popup Style part
+-->
+
+<body id="dashboardBody" th:onload="onLoadcall([[${STM}]])">
+	<header class="header">
+		<!-- <h1>STM: Silicone Test Method</h1> -->
+		<img th:src="@{/images/icons/momentive.png}" alt="momentive">
+		<div class="header-right">
+			<a class="menu-a"
+				th:onclick="|window.location.href='@{/dashboard(ssoid=${ssoid})}'|">Menu</a>
+			<h5 id="adminMessage" th:text="${ssoid}"></h5>
+			<a th:href="@{/login}" class="logout-button"
+				onclick="logoutFunction()"> Logout <i
+				class="bi bi-box-arrow-right"></i>
+			</a>
+		</div>
+	</header>
+	<main>
+		<!-- Added[s] Amulya for Delete page Message-->
+		<!-- Success Modal -->
+		<div style="margin-top: 10px;">
+
+			<div id="successModal" class="modalX" th:if="${message}">
+				<div class="modal-contentX">
+					<!-- Upper part with green color -->
+					<div class="upper-part success-upper">
+						<p>Success</p>
+						<span class="close-modal" onclick="closeModal('successModal')">&times;</span>
+					</div>
+
+					<!-- Lower part with dark color -->
+					<div class="error-message">
+						<div class="success-message">
+							<p th:text="${message}" style="color: black;"></p>
+						</div>
+						<button type="button" class="ok-button"
+							onclick="closeModal('successModal')">OK</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Error Modal -->
+			<div id="errorModal" class="modalX" th:if="${error}">
+				<div class="modal-contentX">
+					<!-- Upper part with red color -->
+					<div class="upper-part error-upper">
+						<p>Error</p>
+						<span class="close-modal" onclick="closeModal('errorModal')">&times;</span>
+					</div>
+
+					<!-- Lower part with dark color -->
+					<div class="error-message">
+						<div class="error-message">
+							<p th:text="${error}" style="color: red;"></p>
+						</div>
+						<button type="button" class="ok-button"
+							onclick="closeModal('errorModal')">OK</button>
+					</div>
+				</div>
+			</div>
+			<!-- Added[E] Amulya for Delete page Message-->
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal()">&times;</span>
+					<div id="modalMessage"></div>
+				</div>
+			</div>
+
+			<!--  Added for Delete page Message-->
+			<!--	<p style="text-align: center;" id="recordDisplay" th:text="${records}"></p>
+-->
+			<div>
+				<form method="post" id="theForm" class="form-horizontal"
+					th:action="@{/reset(ssoid = ${ssoid})}"></form>
+				<form method="post" class="form-horizontal"
+					th:action="@{/searchClick(ssoid = ${ssoid})}">
+					<div class="form-div-search">
+						<div class="containerForm">
+							<div class="label-container row mb-1" style="width: 100%">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="stmNumber" class="registration-label ">TM
+										Number <br>(Quality inspection method_master quality
+										inspection characteristics)
+									</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="stmNumber" name="stmNo" maxlength="15"
+										onkeydown="enterClick(1,event)" class="input-max"
+										pattern="[a-zA-Z0-9\u3040-\u30FF]*" th:value="${stmnum}"
+										oninvalid="InvalidMsg(this,'Enter only Alphanumeric and Japanese Characters.');"
+										oninput="InvalidMsg(this,'Enter only Alphanumeric and Japanese Characters.');"
+										style="margin-top: 3%;" />
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="revisionNumber" class="registration-label">Revision
+										Number</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="Revision number" maxlength="4"
+										name="stmVersion" pattern="[0-9]*" th:value="${stmver}"
+										class="stmNumber-modify"
+										style="background-color: #fff; font-size: 11px"
+										oninvalid="InvalidMsg(this, 'Enter Only Numbers.');"
+										oninput="InvalidMsg(this, 'Enter Only Numbers.');"
+										onkeydown="enterClick(2,event)" />
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="linkDestination" class="registration-label">Link
+										Destination(STM_parent number)</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="Link destination" name="linkDestination"
+										maxlength="15" th:value="${linkDest}"
+										onkeydown="enterClick(3,event)" class="input-max"
+										pattern="^[a-zA-Z0-9\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF]+$"
+										oninvalid="InvalidMsg(this, 'Enter only Alphanumeric and Japanese Characters.');"
+										oninput="InvalidMsg(this, 'Enter only Alphanumeric and Japanese Characters.');" />
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="textJapanese" class="registration-label">Text
+										(Short) Japanese</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="Japanese" name="textShortJP"
+										maxlength="200" onkeydown="enterClick(4,event)"
+										th:value="${txtjp}" class="input-max"
+										pattern="^[\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s。]+$"
+										oninvalid="InvalidMsg(this, 'Enter Only Japanese characters.');"
+										oninput="InvalidMsg(this, 'Enter Only Japanese characters.');" />
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="textEnglish" class="registration-label">Text
+										(Short) English</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="English" name="textShortEN"
+										maxlength="200" pattern="[a-zA-Z]*" th:value="${txteng}"
+										onkeydown="enterClick(5,event)" class="input-max"
+										oninvalid="InvalidMsg(this, 'Please input alphabet characters only.');"
+										oninput="InvalidMsg(this, 'Please input alphabet characters only.');" />
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="last updated(Drafting date)"
+										class="registration-label">Last updated(Drafting date)</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<div class="row mb-1">
+										<div class="col-sm-6">
+											<input type="text" class="input-max" placeholder="yyyy/MM/dd"
+												th:value="${startdate}" name="startDraftDate" maxlength="10"
+												onkeydown="enterClick(6,event)" id="draft_start_date"
+												title="Please Enter Date in yyyy/MM/dd."
+												oninput="formatDraftingDate(this)"
+												pattern="(?:19|20)(?:[0-9]{2}\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[12][0-9]|3[01]))"
+												onblur="validateDate(this, 'startDraftDateError')" />
+										</div>
+										<div style="margin-left: 20px">~</div>
+										<div class="col-sm-7">
+											<input type="text" class="input-max" placeholder="yyyy/MM/dd"
+												th:value="${enddate}" name="endDraftDate" maxlength="10"
+												onkeydown="enterClick(7,event)" id="draft_end_date"
+												title="Please Enter Date in yyyy/MM/dd."
+												oninput="formatDraftingDate(this)"
+												pattern="(?:19|20)(?:[0-9]{2}\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[12][0-9]|3[01]))"
+												onblur="validateDate(this, 'endDraftDateError')" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="finalDrafter" class="registration-label">Final
+										Drafter (Last Name)</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="finalDrafterName"
+										name="finalDrafterName" max="100" class="input-max"
+										pattern="^[a-zA-Z\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s]+$"
+										th:value="${final}" onkeydown="enterClick(8,event)"
+										oninvalid="InvalidMsg(this, 'Enter only Characters,Japanese and Space only allowed.');"
+										oninput="InvalidMsg(this, 'Enter only Characters,Japanese and Space only allowed.');" />
+								</div>
+							</div>
+
+							<div class="label-container row mb-1">
+								<div class="col-sm-3" style="min-width: 350px">
+									<label for="oldStmNumber" class="registration-label">Old
+										STM Number</label>
+								</div>
+								<div class="col-sm-7"
+									style="display: flex; align-items: center;">
+									<input type="text" id="oldSTMnumber" name="oldSTMNumber"
+										class="input-max" maxlength="15"
+										pattern="[a-zA-Z0-9\u3040-\u30FF]*" th:value="${oldstm}"
+										onkeydown="enterClick(9,event)"
+										oninvalid="InvalidMsg(this, 'Enter only Alphanumeric and Japanese Characters.');"
+										oninput="InvalidMsg(this, 'Enter only Alphanumeric and Japanese Characters.');" />
+								</div>
+							</div>
+
+							<!-- Added [s] Amulya for date validation popup -->
+							<div id="modalErrorMonth" class="modal">
+								<div class="modal-content">
+									<div class="upper-part">
+										<p>error</p>
+										<span class="close-modal"
+											onclick="closeModal('modalErrorMonth')">&times;</span>
+									</div>
+									<div class="error-message">
+										<p>Invalid month. Please enter a valid month (1-12).</p>
+										<button type="button" class="ok-button"
+											onclick="closeModal('modalErrorMonth')">OK</button>
+									</div>
+								</div>
+							</div>
+
+							<div id="modalErrorDay" class="modal">
+								<div class="modal-content">
+									<div class="upper-part">
+										<p>error</p>
+										<span class="close-modal"
+											onclick="closeModal('modalErrorDay')">&times;</span>
+									</div>
+									<div class="error-message">
+										<p>Invalid day. Please enter a valid day for the selected
+											month.</p>
+										<button type="button" class="ok-button"
+											onclick="closeModal('modalErrorDay')">OK</button>
+									</div>
+								</div>
+							</div>
+							<!-- Added [E] Amulya for date validation popup -->
+
+							<div class="button-div">
+								<button class="registerclose" type="submit" id="searchbtn"
+									onsubmit="searchcall()" onkeydown="enterClick(10,event)"
+									style="margin-left: 10px">Search</button>
+
+								<button class="returnClear" type="reset" id="resetbtn"
+									style="margin-left: 10px" onclick="resetcall()"
+									onkeydown="enterClick(11,event)">Reset</button>
+								<button type="submit" class="registerclose"
+									style="margin-left: 10px">View</button>
+
+								<!-- <button class="btn btn-primary menu"
+							style="color: white; background-color: limegreen;" type="button"
+							th:onclick="|window.location.href='@{/dashboard(ssoid=${ssoid})}'|">
+							Menu</button> -->
+							</div>
+						</div>
+					</div>
+				</form>
+				<!--<form th:action="@{/viewClick(ssoid = ${ssoid})}" method="post">
+		<button type="submit" class="btn btn-primary view">View</button>
+	</form>-->
+
+				<p style="text-align: center; color: red;" id="recordDisplay"
+					th:text="${records}"></p>
+
+				<div class="table-responsive table-layout"
+					style="margin-left: 2%; margin-right: 2%;">
+					<!-- 					<table class="table" id="searchTable"
+ -->
+					<table class="" id="searchTable" title="Confidential information"
+						style="width: 100%;">
+						<thead class="thead">
+							<tr style="border-radius: 8px 0px 0px 0px">
+								<th class="th"
+									style="text-align: center; padding: 10px 20px 10px 20px;">No</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 20px 10px 20px;">STM_No</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 20px 10px 20px;">STM_Version</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 20px 10px 20px">Link_Destination</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Text_Short_JP</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Text_Short_EN</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Pdf_File</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Word_file</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Drafting_Date</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Final_Drafter_Name</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Old_STM_Number</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Note1</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Note2</th>
+								<th class="th"
+									style="text-align: center; padding: 10px 10px 10px 10px">Note3</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="n,iterStat:${list}" class="tableHover" id="row">
+								<td
+									style="text-align: center; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"
+									th:text="${iterStat.count + 0}"></td>
+								<td th:text="${n.getStmNo()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td
+									style="text-align: center; padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"
+									th:text="${n.getStmVersion()}"></td>
+								<td
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"
+									th:text="${n.getLinkDestination()}"></td>
+								<td th:text="${n.getTextShortJP()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getTextShortEN()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getPdfFile()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getWordFile()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getDraftingDate()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getFinalDrafterName()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getOldSTMNumber()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getRemarks1()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getNote2()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+								<td th:text="${n.getNote3()}"
+									style="padding: 0px; padding-left: 10px; padding-right: 10px; border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9;"></td>
+							</tr>
+						</tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!--  added[S] Amulya For Timer purpose -->
+	<script th:inline="javascript">
+		// Check if the success message exists and open the success modal
+		var successMessage = /*[[${message}]]*/'';
+		if (successMessage) {
+			openModal('successModal');
+		}
+
+		// Check if the error message exists and open the error modal
+		var errorMessage = /*[[${error}]]*/'';
+		if (errorMessage) {
+			openModal('errorModal');
+		}
+
+		//Set the duration for the messages to be displayed in milliseconds (e.g., 5000 for 5 seconds)
+		var messageDuration = 5000;
+
+		// Function to hide the success message after a certain duration
+		function hideSuccessMessage() {
+			var successMessageDiv = document.getElementById('successModal');
+			if (successMessageDiv) {
+				successMessageDiv.style.display = 'none';
+			}
+		}
+
+		// Function to hide the error message after a certain duration
+		function hideErrorMessage() {
+			var errorMessageDiv = document.getElementById('errorModal');
+			if (errorMessageDiv) {
+				errorMessageDiv.style.display = 'none';
+			}
+		}
+		// Set timeouts to hide messages after the specified duration
+		setTimeout(hideSuccessMessage, messageDuration);
+		setTimeout(hideErrorMessage, messageDuration);
+	</script>
+	<!-- added[E] Amulya For Timer purpose -->
+</body>
+
+</html>

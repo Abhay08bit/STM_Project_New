@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+</head>
+<body id="dashboardBody">
+<input type= "hidden" id = "ssoid" name="ssoid" th:value = "${ssoid}"/>
+<h5 id =adminMessage th:text="'' + ${ssoid}" style="color: #062d73;"></h5>
+<a th:href="@{/login}" class="logout-button" onclick="logoutFunction()">
+    Logout
+    <i>&#10142;</i> 
+</a>
+         <h1>STM:Silicone Test Method</h1>
+    <div class="dashboard">
+        <a href="#" class="dashboard-button disabled-link" th:href="@{/register}" style="margin-top:30px;"><span>&#9733;</span>New Registration</a>
+        <a href="#" class="dashboard-button " th:href="@{/search(ssoid = ${ssoid})}" style="margin-top:30px;"><span>&#9733;</span>Search</a>
+    </div>
+        <div class="dash">                 
+        <a href="#" class="dashboard-button disabled-link" th:href="@{/modify(ssoid = ${ssoid})}" style="margin-top:30px;">Modify</a>
+        <a href="#" class="dashboard-button disabled-link" th:href="@{/revise(ssoid = ${ssoid})}" style="margin-top:30px;">Revise</a>
+        <a href="#" class="dashboard-button disabled-link" th:href="@{/delete(ssoid = ${ssoid})}" style="margin-top:30px;">Delete</a>
+        </div>
+        <h2 style="margin-right:846px; font-size:20px;">Explanation link file 1: Format.doc</h2>
+        <h2 style="margin-right:850px; font-size:20px;">Explanation link file 2: Guidelines</h2>
+        <h2 style="margin-right:480px; font-size:20px; margin-bottom:20px;"><p>Explanation link file 3: How to confirm the target product before revision </p>
+        <p>(SAP(reverse expansion)</p>
+        </h2>
+        <div class="return">            
+        <a href="#" class="dashboard-button" th:href="@{/return}" style="margin-left:300px;">Return</a>
+       </div>
+</body>
+</html>

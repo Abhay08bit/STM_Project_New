@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<script type="text/javascript"></script>
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="stylesheet" href="" th:href="@{/CSS/styles.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="js/search.js"></script>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		var contextPath = /*[[${#httpServletRequest.contextPath}]]*/ '/';
+    /*]]>*/
+	</script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			background-color: #cbe3b5;
+		}
+		form {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #cbe3b5;
+		}
+		input[type="text"] {
+			display: inline-block;
+			width: 50%;
+			padding: 10px;
+			height: 30%;
+			margin: 5px 0;
+			border: 2px solid rgb(0, 0, 0);
+			border-radius: 5px;
+		}
+		h5 {
+			margin-top: 1%;
+		}
+		tr.tableHover:hover {
+			background-color: lightgray;
+		}
+	</style>
+
+</head>
+<!--Added [s] Amulya for date validation popup Style part
+-->
+
+<body th:onload="onLoadcall([[${STM}]])">
+	<!-- ADDED[S] AMULYA To Display the ssoid-->
+	<input type="hidden" id="ssoid" name="ssoid" th:value="${ssoid}" />
+	<h5 id=adminMessage th:text="'' + ${ssoid}" style="color: #062d73;"></h5>
+	<a th:href="@{/login}" class="logout-button" onclick="logoutFunction()">
+		Logout
+		<i>&#10142;</i>
+	</a>
+	<!-- ADDED[E] AMULYA To To Display the ssoid-->
+
+	<h1 id=hedding>STM:silicone test method</h1>
+	<!-- Added[s] Amulya for Delete page Message-->
+	<!-- Success Modal -->
+	<div id="successModal" class="modal" th:if="${message}">
+		<div class="modal-content">
+			<!-- Upper part with green color -->
+			<div class="upper-part success-upper">
+				<p>Success</p>
+				<span class="close-modal" onclick="closeModal('successModal')">&times;</span>
+			</div>
+
+			<!-- Lower part with dark color -->
+			<div class="error-message">
+				<div class="success-message">
+					<p th:text="${message}" style="color: black;"></p>
+				</div>
+				<button type="button" class="ok-button" onclick="closeModal('successModal')">OK</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Error Modal -->
+	<div id="errorModal" class="modal" th:if="${error}">
+		<div class="modal-content">
+			<!-- Upper part with red color -->
+			<div class="upper-part error-upper">
+				<p>Error</p>
+				<span class="close-modal" onclick="closeModal('errorModal')">&times;</span>
+			</div>
+
+			<!-- Lower part with dark color -->
+			<div class="error-message">
+				<div class="error-message">
+					<p th:text="${error}" style="color: red;"></p>
+				</div>
+				<button type="button" class="ok-button" onclick="closeModal('errorModal')">OK</button>
+			</div>
+		</div>
+	</div>
+	<!-- Added[E] Amulya for Delete page Message-->
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<div id="modalMessage"></div>
+		</div>
+	</div>
+
+	<!--  Added for Delete page Message-->
+	<p style="text-align: center;" id="recordDisplay" th:text="${records}"></p>
+
+	<form method="post" class="form-horizontal" th:action="@{/searchClick(ssoid = ${ssoid})}">
+		<div class="label-container" style="margin-top: 20px;">
+			<label for="stmNumber">STM Number <br>(Quality inspection
+				method_master quality inspection characteristics)
+			</label> <input type="text" id="stmNumber" name="stmNo" maxlength="15" onkeydown="enterClick(1,event)"
+				pattern="[a-zA-Z0-9\u3040-\u30FF]*" oninvalid="InvalidMsg(this,'Enter only Alphanumeric and Japanese Characters.');" oninput="InvalidMsg(this,'Enter only Alphanumeric and Japanese Characters.');"
+				style="margin-top: 3%;" />
+		</div>
+
+		<div class="label-container">
+			<label for="revisionNumber">Revision Number</label>
+			<input type="text" id="Revision number" minlength="1" maxlength="4" name="stmVersion" pattern="[0-9]*"
+				oninvalid="InvalidMsg(this, 'Enter Only Numbers.');" oninput="InvalidMsg(this, 'Enter Only Numbers.');" onkeydown="enterClick(2,event)" style="width: 11%;margin-right: 35%;" />
+		</div>
+
+		<div class="label-container">
+			<label for="linkDestination">Link Destination(STM_parent number)</label>
+			<input type="text" id="Link destination" name="linkDestination" maxlength="15"
+				onkeydown="enterClick(3,event)"
+				pattern="^[a-zA-Z0-9\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF]+$"
+				 oninvalid="InvalidMsg(this, 'Enter only Alphanumeric and Japanese Characters.');" oninput="InvalidMsg(this, 'Enter only Alphanumeric and Japanese Characters.');"  />
+		</div>
+
+		<div class="label-container">
+			<label for="textJapanese">Text (Short) Japanese</label>
+			<input type="text" id="Japanese" name="textShortJP" maxlength="200" onkeydown="enterClick(4,event)"
+				pattern="^[\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s。]+$"
+				  oninvalid="InvalidMsg(this, 'Enter Only Japanese characters.');" oninput="InvalidMsg(this, 'Enter Only Japanese characters.');"  />
+		</div>
+
+		<div class="label-container">
+			<label for="textEnglish">Text (Short) English</label>
+			<input type="text" id="English" name="textShortEN" maxlength="200" pattern="[a-zA-Z]*"
+				onkeydown="enterClick(5,event)" oninvalid="InvalidMsg(this, 'Please input alphabet characters only.');" oninput="InvalidMsg(this, 'Please input alphabet characters only.');"  />
+		</div>
+
+		<div class="label-container">
+			<label for="last updated(Drafting date)">last updated(Drafting
+				date)</label>
+			<p style="margin-left: 27%;height: 30%;">
+				<input type="text" s class="dobField timePeriodFrom1 datepicker-input" placeholder="yyyy/MM/dd"
+					name="startDraftDate" maxlength="10" onkeydown="enterClick(6,event)" id="draft_start_date"
+					style="margin-left: -31%;width: 49%;" title="Please Enter Date in yyyy/MM/dd."
+					oninput="formatDraftingDate(this)"
+					pattern="(?:19|20)(?:[0-9]{2}\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[12][0-9]|3[01]))"
+					onblur="validateDate(this, 'startDraftDateError')" />
+				~
+				<input type="text" class="dobField timePeriodTo1 datepicker-input" placeholder="yyyy/MM/dd"
+					style="margin-left: 2%;width: 49%;" name="endDraftDate" maxlength="10"
+					onkeydown="enterClick(7,event)" id="draft_end_date" title="Please Enter Date in yyyy/MM/dd."
+					oninput="formatDraftingDate(this)"
+					pattern="(?:19|20)(?:[0-9]{2}\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[12][0-9]|3[01]))"
+					onblur="validateDate(this, 'endDraftDateError')" />
+			</p>
+		</div>
+
+		<div class="label-container">
+			<label for="finalDrafter">Final Drafter (Last Name)</label>
+			<input type="text" id="finalDrafterName" name="finalDrafterName" max="100"
+				pattern="^[a-zA-Z\u3040-\u30FF\u31F0-\u31FF\u4E00-\u9FAF\u3400-\u4DBF\s]+$"
+				onkeydown="enterClick(8,event)"  oninvalid="InvalidMsg(this, 'Enter only Characters,Japanese and Space only allowed.');" oninput="InvalidMsg(this, 'Enter only Characters,Japanese and Space only allowed.');"  />
+		</div>
+
+		<div class="label-container">
+			<label for="oldStmNumber">Old STM Number</label>
+			<input type="text" id="oldSTMnumber" name="oldSTMNumber" maxlength="15" pattern="[a-zA-Z0-9\u3040-\u30FF]*"
+			 onkeydown="enterClick(9,event)" oninvalid="InvalidMsg(this, 'Enter only Alphanumeric and Japanese Characters.');" oninput="InvalidMsg(this, 'Enter only Alphanumeric and Japanese Characters.');"  />
+		</div>
+
+		<!-- Added [s] Amulya for date validation popup -->
+		<div id="modalErrorMonth" class="modal">
+			<div class="modal-content">
+				<div class="upper-part">
+					<p>error</p> <span class="close-modal" onclick="closeModal('modalErrorMonth')">&times;</span>
+				</div>
+				<div class="error-message">
+					<p>Invalid month. Please enter a valid month (1-12).</p>
+					<button type="button" class="ok-button" onclick="closeModal('modalErrorMonth')">OK</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="modalErrorDay" class="modal">
+			<div class="modal-content">
+				<div class="upper-part">
+					<p>error</p> <span class="close-modal" onclick="closeModal('modalErrorDay')">&times;</span>
+				</div>
+				<div class="error-message">
+					<p>Invalid day. Please enter a valid day for the selected month.</p>
+					<button type="button" class="ok-button" onclick="closeModal('modalErrorDay')">OK</button>
+				</div>
+			</div>
+		</div>
+		<!-- Added [E] Amulya for date validation popup -->
+
+		<div style="display: flex; justify-content: space-between; margin-top: 100px;">
+			<button class="btn btn-primary search" type="submit" id="searchbtn" onsubmit="searchcall()"
+				onkeydown="enterClick(10,event)">Search</button>
+
+			<button class="btn btn-primary reset" type="reset" id="resetbtn" onclick="resetcall()"
+				onkeydown="enterClick(11,event)">Reset</button>
+
+			<button class="btn btn-primary menu" style="color: white;background-color: limegreen;" type="button"
+				th:onclick="|window.location.href='@{/dashboard(ssoid=${ssoid})}'|">Menu</button>
+		</div>
+	</form>
+	<form th:action="@{/viewClick(ssoid = ${ssoid})}" method="post">
+		<!--<input type="hidden" id="ssoid" name="ssoid" th:value="${ssoid}" />-->
+		<button type="submit" class="btn btn-primary view">View</button>
+	</form>
+
+	<div class="table-responsive table-layout" style="margin-left: 2%;margin-right: 1%;">
+		<table class="table" id="searchTable" title="Confidential information" style="width: 100%;">
+			<thead style="text-align: center;">
+				<tr>
+					<th>No</th>
+					<th>STM_No</th>
+					<th>STM_Version</th>
+					<th>Link_Destination</th>
+					<th>Text_Short_JP</th>
+					<th>Text_Short_EN</th>
+					<th>Pdf_File</th>
+					<th>Word_file</th>
+					<th>Drafting_Date</th>
+					<th>Final_Drafter_Name</th>
+					<th>Old_STM_Number</th>
+					<th>Note1</th>
+					<th>Note2</th>
+					<th>Note3</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="n:${list}" onclick="" class="tableHover">
+					<td style="width: 3%;" th:text="${n.getNo()}"></td>
+					<td th:text="${n.getStmNo()}"></td>
+					<td style="text-align: right;width: 5%;padding-right: 10px;" th:text="${n.getStmVersion()}"></td>
+					<td style="width:8%;" th:text="${n.getLinkDestination()}"></td>
+					<td th:text="${n.getTextShortJP()}"></td>
+					<td th:text="${n.getTextShortEN()}"></td>
+					<td th:text="${n.getPdfFile()}"></td>
+					<td th:text="${n.getWordFile()}"></td>
+					<td th:text="${n.getDraftingDate()}"></td>
+					<td th:text="${n.getFinalDrafterName()}"></td>
+					<td th:text="${n.getOldSTMNumber()}"></td>
+					<td th:text="${n.getRemarks1()}"></td>
+					<td th:text="${n.getNote2()}"></td>
+					<td th:text="${n.getNote3()}"></td>
+				</tr>
+			<tbody>
+		</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	<!--  added[S] Amulya For Timer purpose -->
+	<script th:inline="javascript">
+
+		// Check if the success message exists and open the success modal
+		var successMessage = /*[[${message}]]*/ '';
+		if (successMessage) {
+			openModal('successModal');
+		}
+
+		// Check if the error message exists and open the error modal
+		var errorMessage = /*[[${error}]]*/ '';
+		if (errorMessage) {
+			openModal('errorModal');
+		}
+
+		//Set the duration for the messages to be displayed in milliseconds (e.g., 5000 for 5 seconds)
+		var messageDuration = 5000;
+
+		// Function to hide the success message after a certain duration
+		function hideSuccessMessage() {
+			var successMessageDiv = document.getElementById('successModal');
+			if (successMessageDiv) {
+				successMessageDiv.style.display = 'none';
+			}
+		}
+
+		// Function to hide the error message after a certain duration
+		function hideErrorMessage() {
+			var errorMessageDiv = document.getElementById('errorModal');
+			if (errorMessageDiv) {
+				errorMessageDiv.style.display = 'none';
+			}
+		}
+		// Set timeouts to hide messages after the specified duration
+		setTimeout(hideSuccessMessage, messageDuration);
+		setTimeout(hideErrorMessage, messageDuration);
+	</script>
+	<!-- added[E] Amulya For Timer purpose -->
+</body>
+
+</html>

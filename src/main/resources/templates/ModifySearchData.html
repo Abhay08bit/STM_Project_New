@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<script type="text/javascript"></script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Modify</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="stylesheet" href="" th:href="@{/CSS/styles.css}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script th:src="@{/js/search.js}"></script>
+<link rel="stylesheet" th:href="@{/CSS/styles.css}">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+	rel="stylesheet">
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	var contextPath = /*[[${#httpServletRequest.contextPath}]]*/'/';
+	/*]]>*/
+</script>
+</head>
+
+<body id="dashboardBody" th:onload="disEnableBtn([[${enableBtn}]])">
+	<header class="header">
+		<!-- <h1>STM: Silicone Test Method</h1> -->
+		<img th:src="@{/images/icons/momentive.png}" alt="momentive">
+		<div class="header-right">
+			<a class="menu-a"
+				th:onclick="|window.location.href='@{/dashboard(ssoid=${ssoid})}'|">Menu</a>
+			<h5 id="adminMessage" th:text="${ssoid}"></h5>
+			<a th:href="@{/login}" class="logout-button"
+				onclick="logoutFunction()"> Logout <i
+				class="bi bi-box-arrow-right"></i>
+			</a>
+		</div>
+	</header>
+	<main>
+		<div style="margin-top: 10px;">
+			<p id="message" th:text="${error}"></p>
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal()">&times;</span>
+					<div id="modalMessage"></div>
+				</div>
+			</div>
+			<p th:text="${msgvalue}" class="msg-error"></p>
+			<form method="get" class="form-horizontal"
+				th:action="@{/Modify(ssoid = ${ssoid})}">
+				<div class="form-div-search">
+					<div class="containerForm">
+						<div class="label-container row mb-1" style="width: 100%">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="stmNumber" class="registration-label">STM
+									Number<br>(Quality inspection method_master <br>quality
+									inspection characteristics)
+								</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="stmNumber" class="input-max-disabled"
+									disabled="disabled" th:value="${entValue.stmNo}"
+									oninput="updateDisabledField(this),updateFields()">
+							</div>
+						</div>
+
+						<div class="label-container row mb-1" style="width: 100%">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="Revision number" class="registration-label">Revision
+									number</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="disabledField" disabled="disabled"
+									class="stmNumber-modify" style="font-size: 11px;"
+									th:value="${entValue.stmVersion}">
+							</div>
+						</div>
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="linkDestination" class="registration-label">Link
+									Destination(STM_parent number)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="linkDestination" disabled="disabled"
+									th:value="${entValue.linkDestination}"
+									class="input-max-disabled">
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="textJapanese" class="registration-label">Text
+									(Short) Japanese</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="textJapanese" disabled="disabled"
+									th:value="${entValue.textShortJP}" class="input-max-disabled">
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="textEnglish" class="registration-label">Text
+									(Short) English</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="textEnglish" disabled="disabled"
+									th:value="${entValue.textShortEN}" class="input-max-disabled">
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="pdfFileName" class="registration-label">Attachment
+									(PDF)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<div class="row mb-1">
+									<div class="col-sm-7" style="min-width: 230px">
+										<input type="text" id="pdfFileName" disabled="disabled"
+											th:value="${entValue.pdfFile}" name="pdfFileName"
+											class="input-max-disabled">
+									</div>
+									<div class="col-sm-3" style="margin-left: 15px">
+										<input type="hidden" id="pdfFileNameHid"
+											th:value="${entValue.pdfFile}" name="pdfFileName">
+										<button type="button" class="choose-file"
+											onclick="downloadPDF()" id="pdfFileName" th:value="${pdf}">PDF
+											Download</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="docFileName" class="registration-label">Attachment
+									(Word)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<div class="row mb-1">
+									<div class="col-sm-7" style="min-width: 230px">
+										<input type="text" id="docFileName" disabled="disabled"
+											th:value="${entValue.wordFile}" name="docFileName"
+											class="input-max-disabled" />
+									</div>
+									<div class="col-sm-3" style="margin-left: 15px">
+										<input type="hidden" id="docFileNameHid"
+											th:value="${entValue.wordFile}" name="docFileName">
+
+										<button type="button" class="choose-file"
+											onclick="downloadDocument()" id="docFileName"
+											th:value="${word}">DOC Download</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Modal for PDF error -->
+						<div id="pdfError" class="modal">
+							<div class="modal-content">
+								<span class="close-modal" onclick="closeModal('pdfError')">&times;</span>
+								<p>Invalid file format. Please select a PDF file.</p>
+							</div>
+						</div>
+
+						<!-- Modal for Word error -->
+						<div id="wordError" class="modal">
+							<div class="modal-content">
+								<span class="close-modal" onclick="closeModal('wordError')">&times;</span>
+								<p>Invalid file format. Please select a Word file (doc or
+									docx).</p>
+							</div>
+						</div>
+
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="lastUpdated" class="registration-label">Last
+									Updated (Drafting Date)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="lastUpdated" disabled="disabled"
+									class="input-max-disabled" th:value="${entValue.draftingDate}"
+									pattern="yyy/MM/dd">
+							</div>
+						</div>
+
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="finalDrafter" class="registration-label">Final
+									Drafter (Last Name)</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="finalDrafter" disabled="disabled"
+									class="input-max-disabled"
+									th:value="${entValue.finalDrafterName}">
+							</div>
+						</div>
+
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="oldStmNumber" class="registration-label">Old
+									STM Number</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="oldStmNumber" disabled="disabled"
+									class="input-max-disabled" th:value="${entValue.oldSTMNumber}">
+							</div>
+						</div>
+
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="remarks1" class="registration-label">Remarks
+									1</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input id="remarks1" type="text" disabled="disabled"
+									class="input-max-disabled" th:value="${entValue.remarks1}">
+							</div>
+						</div>
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="note2" class="registration-label">Note 2</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="note2" disabled="disabled"
+									class="input-max-disabled" th:value="${entValue.note2}">
+							</div>
+						</div>
+
+
+						<div class="label-container row mb-1">
+							<div class="col-sm-3" style="min-width: 350px">
+								<label for="note3" class="registration-label">Note 3</label>
+							</div>
+							<div class="col-sm-7" style="display: flex; align-items: center;">
+								<input type="text" id="note3" disabled="disabled"
+									class="input-max-disabled" th:value="${entValue.note3}">
+							</div>
+						</div>
+						<div class="button-div">
+							<button type="button" name="action" value="register"
+								class="registerclose" id="clkBtn" onclick="openModifyPage()"
+								disabled style="margin-left: 10px">Modify</button>
+							<button type="button" name="action" value="revise"
+								class="returnClear" id="Btn" onclick="openRevisePage()" disabled
+								style="margin-left: 10px">Revise</button>
+							<button type="button" name="action" value="delete"
+								class="deleteclose" id="clkBtns" onclick="openDeletePage()"
+								disabled style="margin-left: 10px">Delete</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<script type="text/javascript">
+			var stmNumber = document.getElementById('stmNumber').value;
+			function openRevisePage() {
+				//ADD[S]Samata_2023/12/26
+				window.location.href = contextPath + '/revise/' + stmNumber;
+			}
+			function openModifyPage() {
+				window.location.href = contextPath + '/modify/' + stmNumber;
+			}
+			function openDeletePage() {
+				window.location.href = contextPath + '/delete/' + stmNumber;
+			}
+			//ADD[E]Samata_2023/12/26
+		</script>
+
+
+	</main>
+</body>
+
+</html>

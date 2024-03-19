@@ -1,0 +1,329 @@
+2024-02-19 09:13:55 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 13544 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 09:13:55 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 09:13:55 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-19 09:14:01 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.529 seconds (JVM running for 7.625)
+2024-02-19 09:16:02 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 20380 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 09:16:02 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 09:16:02 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-19 09:16:06 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 4.193 seconds (JVM running for 4.96)
+2024-02-19 09:57:35 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Received ssoid in login: admin101
+2024-02-19 09:57:35 [http-nio-8080-exec-6] WARN  c.s.controller.LoginController - Login failed for ssoid: admin101
+2024-02-19 09:57:48 [http-nio-8080-exec-8] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 09:57:48 [http-nio-8080-exec-8] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 09:57:48 [http-nio-8080-exec-8] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 09:57:59 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 09:57:59 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 09:57:59 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 09:58:33 [http-nio-8080-exec-3] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:01:42 [http-nio-8080-exec-8] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:01:51 [http-nio-8080-exec-8] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:01:56 [http-nio-8080-exec-8] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:03:23 [http-nio-8080-exec-3] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:10:51 [http-nio-8080-exec-10] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:34:02 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 20380 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 10:34:02 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 10:34:02 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-19 10:34:03 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 1.378 seconds (JVM running for 4679.511)
+2024-02-19 10:40:39 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 13664 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 10:40:39 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 10:40:39 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-19 10:40:45 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.717 seconds (JVM running for 7.885)
+2024-02-19 10:40:58 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 8160 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 10:40:58 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 10:40:58 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-19 10:41:02 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 4.639 seconds (JVM running for 5.424)
+2024-02-19 10:41:08 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 10:41:08 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 10:41:08 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 10:41:16 [http-nio-8080-exec-9] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:41:35 [http-nio-8080-exec-7] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:42:00 [http-nio-8080-exec-2] INFO  c.s.controller.LoginController - Received ssoid in login: 一般ユーザー
+2024-02-19 10:42:00 [http-nio-8080-exec-2] INFO  c.s.controller.LoginController - User login successful: 一般ユーザー
+2024-02-19 10:42:03 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:42:31 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 10:42:31 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 10:42:31 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 10:50:49 [http-nio-8080-exec-8] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:52:48 [http-nio-8080-exec-7] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:52:58 [http-nio-8080-exec-10] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:53:10 [http-nio-8080-exec-2] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 10:54:46 [http-nio-8080-exec-10] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:04:36 [http-nio-8080-exec-9] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:09:47 [http-nio-8080-exec-6] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:09:52 [http-nio-8080-exec-5] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:09:57 [http-nio-8080-exec-10] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:10:30 [http-nio-8080-exec-9] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:19:30 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:24:24 [http-nio-8080-exec-9] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:24:32 [http-nio-8080-exec-9] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:26:13 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:27:15 [http-nio-8080-exec-6] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:27:27 [http-nio-8080-exec-5] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:27:45 [http-nio-8080-exec-3] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:27:47 [http-nio-8080-exec-8] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:27:55 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 11:28:12 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 12:22:41 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 12:22:41 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 12:22:41 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 12:22:48 [http-nio-8080-exec-1] INFO  c.s.controller.LoginController - Received ssoid in login: 1231231313
+2024-02-19 12:22:48 [http-nio-8080-exec-1] WARN  c.s.controller.LoginController - Login failed for ssoid: 1231231313
+2024-02-19 12:23:01 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 12:23:01 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 12:23:01 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 12:23:21 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 12:23:30 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 12:23:44 [http-nio-8080-exec-7] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 12:27:06 [http-nio-8080-exec-2] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 12:31:16 [http-nio-8080-exec-3] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 12:31:50 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 12:59:31 [http-nio-8080-exec-6] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 13:04:58 [http-nio-8080-exec-2] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 13:16:19 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 13:17:21 [http-nio-8080-exec-7] INFO  c.s.c.STM_RegistrationController - STM registration successful. STM number: A05000000000002
+2024-02-19 13:17:35 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 13:17:49 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 13:18:00 [http-nio-8080-exec-9] INFO  c.s.controller.DeleteController - STM deletion successful. STM number: A05000000000002
+2024-02-19 13:18:03 [http-nio-8080-exec-7] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 13:18:15 [http-nio-8080-exec-2] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 13:18:25 [http-nio-8080-exec-8] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 13:18:25 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 13:18:31 [http-nio-8080-exec-10] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 13:18:42 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 14:20:23 [http-nio-8080-exec-2] ERROR c.s.controller.SearchController - An error occurred in ModifyViewPage
+java.lang.NullPointerException: Cannot invoke "com.stmproject.model.SearchResultlist.getLinkDestination()" because "modifyUser" is null
+	at com.stmproject.serviceImpl.S_UserServiceImpl.setEmptyForNullValues(S_UserServiceImpl.java:219)
+	at com.stmproject.controller.SearchController.ModifyViewPage(SearchController.java:165)
+	at jdk.internal.reflect.GeneratedMethodAccessor196.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2024-02-19 14:20:36 [http-nio-8080-exec-3] ERROR c.s.controller.SearchController - An error occurred in ModifyViewPage
+java.lang.NullPointerException: Cannot invoke "com.stmproject.model.SearchResultlist.getLinkDestination()" because "modifyUser" is null
+	at com.stmproject.serviceImpl.S_UserServiceImpl.setEmptyForNullValues(S_UserServiceImpl.java:219)
+	at com.stmproject.controller.SearchController.ModifyViewPage(SearchController.java:165)
+	at jdk.internal.reflect.GeneratedMethodAccessor196.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2024-02-19 14:20:37 [http-nio-8080-exec-5] ERROR c.s.controller.SearchController - An error occurred in ModifyViewPage
+java.lang.NullPointerException: Cannot invoke "com.stmproject.model.SearchResultlist.getLinkDestination()" because "modifyUser" is null
+	at com.stmproject.serviceImpl.S_UserServiceImpl.setEmptyForNullValues(S_UserServiceImpl.java:219)
+	at com.stmproject.controller.SearchController.ModifyViewPage(SearchController.java:165)
+	at jdk.internal.reflect.GeneratedMethodAccessor196.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2024-02-19 14:21:38 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 22604 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 14:21:38 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 14:21:38 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-19 14:21:44 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.542 seconds (JVM running for 7.609)
+2024-02-19 14:21:58 [restartedMain] INFO  com.stmproject.StmProjectApplication - Starting StmProjectApplication using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 19816 (D:\STM_Project\stm_project-master\target\classes started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 14:21:58 [restartedMain] DEBUG com.stmproject.StmProjectApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 14:21:58 [restartedMain] INFO  com.stmproject.StmProjectApplication - No active profile set, falling back to default profiles: default
+2024-02-19 14:22:02 [restartedMain] INFO  com.stmproject.StmProjectApplication - Started StmProjectApplication in 4.338 seconds (JVM running for 5.063)
+2024-02-19 14:22:08 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 14:22:08 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 14:22:08 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 14:22:13 [http-nio-8080-exec-9] DEBUG c.s.controller.SearchController - 1 records found.
+2024-02-19 15:45:46 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Received ssoid in login: admin102123
+2024-02-19 15:45:46 [http-nio-8080-exec-3] WARN  c.s.controller.LoginController - Login failed for ssoid: admin102123
+2024-02-19 15:46:12 [http-nio-8080-exec-4] INFO  c.s.controller.LoginController - Received ssoid in login: admin102121
+2024-02-19 15:46:12 [http-nio-8080-exec-4] WARN  c.s.controller.LoginController - Login failed for ssoid: admin102121
+2024-02-19 15:46:35 [http-nio-8080-exec-7] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 15:46:35 [http-nio-8080-exec-7] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 15:46:35 [http-nio-8080-exec-7] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 15:50:38 [http-nio-8080-exec-8] INFO  c.s.c.STM_RegistrationController - STM registration successful. STM number: A050A0111111111
+2024-02-19 15:51:58 [http-nio-8080-exec-10] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:52:52 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:53:20 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:53:36 [http-nio-8080-exec-5] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:53:47 [http-nio-8080-exec-3] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:53:47 [http-nio-8080-exec-7] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:53:48 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:53:50 [http-nio-8080-exec-6] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:55:05 [http-nio-8080-exec-7] DEBUG c.s.controller.SearchController - 2 records found.
+2024-02-19 15:57:56 [http-nio-8080-exec-9] INFO  c.s.c.STM_RegistrationController - STM registration successful. STM number: A050A0222222222
+2024-02-19 15:58:55 [http-nio-8080-exec-10] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 15:59:47 [http-nio-8080-exec-7] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 15:59:48 [http-nio-8080-exec-1] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 15:59:49 [http-nio-8080-exec-6] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 15:59:50 [http-nio-8080-exec-9] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 15:59:51 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 16:06:25 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 16:06:25 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 16:06:25 [http-nio-8080-exec-9] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 16:08:24 [http-nio-8080-exec-6] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 16:10:36 [http-nio-8080-exec-3] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 16:11:22 [http-nio-8080-exec-4] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 16:22:24 [http-nio-8080-exec-4] INFO  c.s.controller.LoginController - Received ssoid in login: ヴィネット1
+2024-02-19 16:22:24 [http-nio-8080-exec-4] INFO  c.s.controller.LoginController - Admin login successful: ヴィネット1
+2024-02-19 16:22:24 [http-nio-8080-exec-4] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=%E3%83%B4%E3%82%A3%E3%83%8D%E3%83%83%E3%83%881
+2024-02-19 16:23:06 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - Received ssoid in login: 一般ユーザー
+2024-02-19 16:23:06 [http-nio-8080-exec-6] INFO  c.s.controller.LoginController - User login successful: 一般ユーザー
+2024-02-19 16:24:23 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 16:24:23 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 16:24:23 [http-nio-8080-exec-3] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 16:46:57 [http-nio-8080-exec-1] INFO  c.s.controller.LoginController - Received ssoid in login: admin102
+2024-02-19 16:46:57 [http-nio-8080-exec-1] INFO  c.s.controller.LoginController - Admin login successful: admin102
+2024-02-19 16:46:57 [http-nio-8080-exec-1] INFO  c.s.controller.LoginController - Redirecting to: redirect:/AdminDashBoard?ssoid=admin102
+2024-02-19 17:02:11 [http-nio-8080-exec-5] DEBUG c.s.controller.SearchController - 3 records found.
+2024-02-19 17:14:56 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 10848 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 17:14:56 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 17:14:56 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-19 17:15:04 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 8.201 seconds (JVM running for 9.781)
+2024-02-19 17:20:36 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 22724 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 17:20:36 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 17:20:36 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-19 17:20:43 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 6.557 seconds (JVM running for 7.677)
+2024-02-19 17:31:46 [main] INFO  c.s.StmProjectApplicationTests - Starting StmProjectApplicationTests using Java 17.0.6 on LAPTOP-APGTCQI3 with PID 3380 (started by IndoSakura in D:\STM_Project\stm_project-master)
+2024-02-19 17:31:46 [main] DEBUG c.s.StmProjectApplicationTests - Running with Spring Boot v2.5.4, Spring v5.3.9
+2024-02-19 17:31:46 [main] INFO  c.s.StmProjectApplicationTests - No active profile set, falling back to default profiles: default
+2024-02-19 17:31:53 [main] INFO  c.s.StmProjectApplicationTests - Started StmProjectApplicationTests in 7.341 seconds (JVM running for 8.407)
